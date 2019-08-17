@@ -19,18 +19,17 @@ public class CustomerServiceImpl implements CustomerService {
 }*/
 package com.jfs.service;
 import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.jfs.model.Customer;
 import com.jfs.repository.CustomerRepository;
 import com.jfs.repository.CustomerRepositoryImpl;
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
-	private CustomerRepository customerRepository = new CustomerRepositoryImpl();
-	/* (non-Javadoc)
-
-	 * @see com.jfs.service.CustomerService#findAll()
-
-	 */
+	//private CustomerRepository customerRepository = new CustomerRepositoryImpl();
+	@Autowired
+	private CustomerRepository customerRepository;
 	@Override
 	public ArrayList<Customer> findAll() {
 		return customerRepository.findAll();
