@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
-   <bean name="customerRepository"
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+   <!-- <bean name="customerRepository"
 	     class="com.jfs.repository.CustomerRepositoryImpl" />
    <bean name="customerService"
 	     class="com.jfs.service.CustomerServiceImpl">
 	     <property name="customerRepository" ref="customerRepository"></property>
-    </bean>    
+    </bean> -->
+    
+    <!-- <bean name="customerRepository"
+	class="com.jfs.repository.CustomerRepositoryImpl" />
+	
+	<bean name="customerService"
+	class="com.jfs.service.CustomerServiceImpl" autowire="byType"/> -->
+	
+	<!-- <bean name="customerService"
+	class="com.jfs.service.CustomerServiceImpl" >
+	<constructor-arg index="0" ref="customerRepository"/>
+	</bean> -->
+     
+    <!-- <bean name="customerService"
+	class="com.jfs.service.CustomerServiceImpl" autowire="byName"/> -->
+
+	<!-- <constructor-arg index="0" ref="customerRepository"/> //Here we have changed the autowire to "byType"-->
+  	
+  	<context:annotation-config />
+    <context:component-scan base-package="com.jfs" />
+  	
+  	
 </beans>

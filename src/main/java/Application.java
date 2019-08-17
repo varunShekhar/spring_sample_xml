@@ -42,8 +42,8 @@ import com.jfs.service.CustomerService;
 public class Application {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		//CustomerService service = applicationContext.getBean("customerService", CustomerService.class);
-		CustomerRepositoryImpl service = applicationContext.getBean("customerRepository", CustomerRepositoryImpl.class);
+		CustomerService service = applicationContext.getBean("customerService", CustomerService.class);
+		//CustomerRepositoryImpl service = applicationContext.getBean("customerRepository", CustomerRepositoryImpl.class);
 		System.out.println(service.findAll().get(0).getFirstname());
 	}
 }
