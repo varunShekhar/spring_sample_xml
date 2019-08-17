@@ -27,6 +27,12 @@ import com.jfs.repository.CustomerRepository;
 import com.jfs.repository.CustomerRepositoryImpl;
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
+	@Autowired
+	public CustomerServiceImpl(CustomerRepository customerRepository) {
+		System.out.println("We are using constructor injection");
+		this.customerRepository = customerRepository;
+	}
+
 	//private CustomerRepository customerRepository = new CustomerRepositoryImpl();
 	//@Autowired
 	private CustomerRepository customerRepository;
@@ -34,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerRepository getCustomerRepository() {
 		return customerRepository;
 	}
-	@Autowired
+	//@Autowired
 	public void setCustomerRepository(CustomerRepository customerRepository) {
 		System.out.println("We are using setter injection");
 		this.customerRepository = customerRepository;
